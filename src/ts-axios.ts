@@ -2,7 +2,7 @@
 // import "core-js/fn/array.find"
 // ...
 
-import { AxiosRequestConfig } from './types/index'
+import { AxiosPromise, AxiosRequestConfig } from './types/index'
 import xhr from './xhr'
 import { buildURL } from './helpers/url'
 import { transformRequest } from './helpers/data'
@@ -27,9 +27,9 @@ function transformHeaders(config: AxiosRequestConfig) {
   const { headers = {}, data } = config
   return processHeaders(headers, data)
 }
-function axios(config: AxiosRequestConfig): void {
+function axios(config: AxiosRequestConfig): AxiosPromise {
   processConfig(config)
-  xhr(config)
+  return xhr(config)
 }
 
 export default axios
