@@ -1,4 +1,4 @@
-import {isObject} from './url'
+import {isObject} from './utils'
 
 export function transformRequest(data: any): any{
   if (isObject(data)){
